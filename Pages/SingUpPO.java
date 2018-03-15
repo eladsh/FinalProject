@@ -16,6 +16,7 @@ public class SingUpPO extends TestBase {
 
 
 	// constructor
+	
 	public SingUpPO(String browser) {
 		super(browser);
 
