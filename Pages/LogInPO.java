@@ -9,11 +9,7 @@ import Main.TestBase;
 
 public class LogInPO extends TestBase {
 
-	
-	
-	// Properties
-	
-	//WebElement test = driver.findElement(By.id("RePassTB"));
+
 	
 	public LogInPO(String browser) {
 		super(browser);

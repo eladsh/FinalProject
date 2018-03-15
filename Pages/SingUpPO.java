@@ -12,8 +12,7 @@ import Main.TestBase;
 
 public class SingUpPO extends TestBase {
 
-	// Properties
-
+	
 
 	// constructor
 	
