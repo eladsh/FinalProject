@@ -22,6 +22,7 @@ public class LogInPO extends TestBase {
 	
 
 	// methods
+	
 	public void initialization() throws InterruptedException {
 		
 		driver.get(url);

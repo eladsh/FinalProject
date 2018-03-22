@@ -24,23 +24,8 @@ public class SingUpTest {
 		_SingUpPO.pressSingOnTab();
 	}
 
-	@Test
-	public void sanity() throws InterruptedException {
-
-		
-		_SingUpPO.fillFirstName("bobo");
-		_SingUpPO.fillLastName("clown");
-		_SingUpPO.fillEmail("eee@rrr");
-		_SingUpPO.fillPassword("123456");
-		_SingUpPO.pressSingOnBtn();
-		_SingUpPO.waitUntil();
-		// _SingUpPO.back();
-		_SingUpPO.close();
-
-	}
-
 //	@Test
-//	public void E2Esanity() throws InterruptedException {
+//	public void sanity() throws InterruptedException {
 //
 //		
 //		_SingUpPO.fillFirstName("bobo");
@@ -49,17 +34,32 @@ public class SingUpTest {
 //		_SingUpPO.fillPassword("123456");
 //		_SingUpPO.pressSingOnBtn();
 //		_SingUpPO.waitUntil();
-//		_SingUpPO.back();
-//		_SingUpPO.pressLogInTab();
-//		_SingUpPO.fillReEmail("eee@rrr");
-//		_SingUpPO.fillRePassword("123456");
-//		_SingUpPO.pressLogInBtn();
-//		_SingUpPO.waitUntil();
-//		_SingUpPO.back();
+//		// _SingUpPO.back();
 //		_SingUpPO.close();
 //
 //	}
-//
+
+	@Test
+	public void E2Esanity() throws InterruptedException {
+
+		
+		_SingUpPO.fillFirstName("bobo");
+		_SingUpPO.fillLastName("clown");
+		_SingUpPO.fillEmail("eee@rrr");
+		_SingUpPO.fillPassword("123456");
+		_SingUpPO.pressSingOnBtn();
+		_SingUpPO.waitUntil();
+		_SingUpPO.back();
+		_SingUpPO.pressLogInTab();
+		_SingUpPO.fillReEmail("eee@rrr");
+		_SingUpPO.fillRePassword("123456");
+		_SingUpPO.pressLogInBtn();
+		_SingUpPO.waitUntil();
+		_SingUpPO.back();
+		_SingUpPO.close();
+
+	}
+
 //	@Test
 //
 //	public void isEmailCorrectPositive() throws InterruptedException {
