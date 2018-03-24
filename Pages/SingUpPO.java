@@ -12,14 +12,25 @@ import Main.TestBase;
 
 public class SingUpPO extends TestBase {
 
-	
+	// Properties
+
+	private WebElement firstName;
+	private WebElement SingOnTab;
+	private WebElement lastName;
+	private WebElement password;
+	private WebElement email;
+	private WebElement SingOnBtn;
 
 	// constructor
-	
+
 	public SingUpPO(String browser) {
 		super(browser);
 
 	}
+
+	public SingUpPO() {
+
+	};
 
 	// methods
 
@@ -38,33 +49,37 @@ public class SingUpPO extends TestBase {
 	}
 
 	public void pressSingOnTab() {
-		driver.findElement(By.id("Sign-UpB")).click();
+		getSingOnTab();
 
 	}
 
 	public void pressSingOnBtn() {
-		driver.findElement(By.id("BGetS")).click();
 
+		getSingOnBtn();
 	}
 
 	public boolean fillFirstName(String value) {
 		boolean x;
-		if (value !=null) {
-			driver.findElement(By.id("FNTB")).sendKeys(value);
-		x = true;
-		}else {
+		if (value != null) {
+
+			getFirstName();
+			setFirstName(firstName, value);
+			x = true;
+		} else {
 			assertNotEquals(url1, driver.getCurrentUrl());
 			x = false;
 		}
 		return x;
 	}
-	
+
 	public boolean fillLastName(String value) {
 		boolean x;
-		if (value !=null) {
-			driver.findElement(By.id("LNTB")).sendKeys(value);
-		x = true;
-		}else {
+		if (value != null) {
+
+			getLastName();
+			setLastName(lastName, value);
+			x = true;
+		} else {
 			assertNotEquals(url1, driver.getCurrentUrl());
 			x = false;
 		}
@@ -73,19 +88,22 @@ public class SingUpPO extends TestBase {
 
 	public boolean fillPassword(String value) {
 		boolean x;
-		if (value !=null) {
-			driver.findElement(By.id("PassTB")).sendKeys(value);
-		x = true;
-		}else {
+		if (value != null) {
+
+			getPassword();
+			setPassword(password, value);
+			x = true;
+		} else {
 			assertNotEquals(url1, driver.getCurrentUrl());
 			x = false;
 		}
 		return x;
 	}
-	
-	
+
 	public boolean fillEmail(String value) {
-		driver.findElement(By.id("EmailTB")).sendKeys(value);
+
+		getEmail();
+		setEmail(email, value);
 		boolean x;
 		if (value != null) {
 			if (value.contains("@")) {
@@ -100,7 +118,6 @@ public class SingUpPO extends TestBase {
 		return x;
 
 	}
-
 
 	public boolean waitUntil() {
 
@@ -115,54 +132,58 @@ public class SingUpPO extends TestBase {
 		return x;
 
 	}
-	
-	
-	public void pressLogInTab() {
-		driver.findElement(By.id("LoginB")).click();
-	
-	
+
+	// Getters & Setters
+
+	public WebElement getFirstName() {
+		firstName = driver.findElement(By.id("FNTB"));
+		return firstName;
 	}
-	
-	public void pressLogInBtn() {
-		driver.findElement(By.id("ReBGetS")).click();
-	
-	
+
+	public void setFirstName(WebElement firstName, String value) {
+
+		this.firstName = firstName;
+		firstName.sendKeys(value);
 	}
-	
-	public boolean fillReEmail(String value) {
-		driver.findElement(By.id("ReEmailTB")).sendKeys(value);
-		boolean x;
-		if (value != null) {
-			if (value.contains("@")) {
-				x = true;
-			} else {
-				x = false;
-			}
-		} else {
-			x = false;
-		}
 
-		return x;
-
+	public WebElement getSingOnTab() {
+		driver.findElement(By.id("Sign-UpB")).click();
+		return SingOnTab;
 	}
-	
 
+	public WebElement getLastName() {
+		lastName = driver.findElement(By.id("LNTB"));
+		return lastName;
+	}
 
+	public void setLastName(WebElement lastName, String value) {
+		this.lastName = lastName;
+		lastName.sendKeys(value);
+	}
 
-	public boolean fillRePassword(String value) {
-	    boolean x;
-	    if (value != null) {
-			driver.findElement(By.id("RePassTB")).sendKeys(value);
-			x = true;
-	    }else {
-	    	x = false;
-	    }
-	    return x;
-		}
+	public WebElement getPassword() {
+		password = driver.findElement(By.id("PassTB"));
+		return password;
+	}
 
+	public void setPassword(WebElement password, String value) {
+		this.password = password;
+		password.sendKeys(value);
+	}
 
-	
+	public WebElement getEmail() {
+		email = driver.findElement(By.id("EmailTB"));
+		return email;
+	}
 
+	public void setEmail(WebElement email, String value) {
+		this.email = email;
+		email.sendKeys(value);
+	}
 
+	public WebElement getSingOnBtn() {
+		driver.findElement(By.id("BGetS")).click();
+		return SingOnBtn;
+	}
 
 }

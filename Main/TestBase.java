@@ -9,7 +9,7 @@ public abstract class TestBase {
 
 	// Properties
 	static String pageName;
-	public WebDriver driver;
+	public static WebDriver driver;
 	public String url = "file:///D:/Elad/Authomation%20cours/Final%20Project/signUp/index.html";
 	public String url1 = "file:///D:/";
 
@@ -20,8 +20,16 @@ public abstract class TestBase {
 	 
 
 	}
+	public TestBase() {
 	
+	 
 
+	}
+	public TestBase(WebDriver driver) {
+		
+		 this.driver = driver;
+
+	}
 
 	public void Choosebrowser(String browser) {
 		switch (browser) {

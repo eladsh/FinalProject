@@ -7,13 +7,16 @@ import org.junit.Test;
 
 
 import Pages.LogInPO;
+import Pages.SingUpPO;
 
 public class LogInTest {
 
 	 LogInPO _LogInPO = new LogInPO("Chrome");
+	 SingUpPO _SingUpPO = new SingUpPO();
 	
 //Properties
 	boolean isEmptyNegative;
+	
 	
 	@Before
 	
@@ -45,15 +48,15 @@ public class LogInTest {
 	 _LogInPO.pressLogInBtn();
 	 _LogInPO.waitUntil();
 	 _LogInPO.back();
-	 _LogInPO.pressSingOnTab();
-	 _LogInPO.fillFirstName("bobo");
-	 _LogInPO.fillLastName("clown");
-	 _LogInPO.fillEmail("eee@rrr");
-	 _LogInPO.fillPassword("123456");
-	 _LogInPO.pressSingOnBtn();
-	 _LogInPO.waitUntil();
-	 _LogInPO.back();
-	 _LogInPO.close();
+	 _SingUpPO.pressSingOnTab();
+	 _SingUpPO.fillFirstName("bobo");
+	 _SingUpPO.fillLastName("clown");
+	 _SingUpPO.fillEmail("eee@rrr");
+	 _SingUpPO.fillPassword("123456");
+	 _SingUpPO.pressSingOnBtn();
+	 _SingUpPO.waitUntil();
+	 _SingUpPO.back();
+	 _SingUpPO.close();
 	
 	
 	 }
