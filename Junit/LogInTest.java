@@ -14,7 +14,7 @@ public class LogInTest {
 	 LogInPO _LogInPO = new LogInPO("Chrome");
 	 SingUpPO _SingUpPO = new SingUpPO();
 	
-//Properties
+//Propertiesss
 	boolean isEmptyNegative;
 	
 	
