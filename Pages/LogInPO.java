@@ -9,43 +9,43 @@ import Main.TestBase;
 
 public class LogInPO extends TestBase {
 
-	
-	
 	// Properties
-	
-	//WebElement test = driver.findElement(By.id("RePassTB"));
-	
+
+	private WebElement reEmail;
+	private WebElement logInBtn;
+	private WebElement logInTab;
+	private WebElement rePassword;
+
 	public LogInPO(String browser) {
 		super(browser);
-		
+
 	}
-	
+
+	public LogInPO() {
+	};
 
 	// methods
-	
-	public void initialization() throws InterruptedException {
-		
+
+	public void initialization()  {
+
 		driver.get(url);
-	
+
 	}
-	
 
 	public void pressLogInTab() {
-		driver.findElement(By.id("LoginB")).click();
-	
-	
-	}
-	
-	public void pressLogInBtn() {
-		driver.findElement(By.id("ReBGetS")).click();
-	
-	
-	}
-	
 
-	
+		getLogInTab();
+
+	}
+
+	public void pressLogInBtn() {
+		getLogInBtn();
+
+	}
+
 	public boolean fillReEmail(String value) {
-		driver.findElement(By.id("ReEmailTB")).sendKeys(value);
+		getReEmail();
+		setReEmail(reEmail, value);
 		boolean x;
 		if (value != null) {
 			if (value.contains("@")) {
@@ -60,86 +60,19 @@ public class LogInPO extends TestBase {
 		return x;
 
 	}
-	
-
-
 
 	public boolean fillRePassword(String value) {
-    boolean x;
-    if (value != null) {
-		driver.findElement(By.id("RePassTB")).sendKeys(value);
-		x = true;
-    }else {
-    	x = false;
-    }
-    return x;
-	}
-	
-	public void pressSingOnTab() {
-		driver.findElement(By.id("Sign-UpB")).click();
-
-	}
-
-	public void pressSingOnBtn() {
-		driver.findElement(By.id("BGetS")).click();
-
-	}
-
-	public boolean fillFirstName(String value) {
-		boolean x;
-		if (value !=null) {
-		driver.findElement(By.id("FNTB")).sendKeys(value);
-		x = true;
-		}else {
-			assertNotEquals(url1, driver.getCurrentUrl());
-			x = false;
-		}
-		return x;
-	}
-	
-	public boolean fillLastName(String value) {
-		boolean x;
-		if (value !=null) {
-			driver.findElement(By.id("LNTB")).sendKeys(value);
-		x = true;
-		}else {
-			assertNotEquals(url1, driver.getCurrentUrl());
-			x = false;
-		}
-		return x;
-	}
-
-	public boolean fillPassword(String value) {
-		boolean x;
-		if (value !=null) {
-			driver.findElement(By.id("PassTB")).sendKeys(value);
-		x = true;
-		}else {
-			assertNotEquals(url1, driver.getCurrentUrl());
-			x = false;
-		}
-		return x;
-	}
-	
-	
-	public boolean fillEmail(String value) {
-		driver.findElement(By.id("EmailTB")).sendKeys(value);
 		boolean x;
 		if (value != null) {
-			if (value.contains("@")) {
-				x = true;
-			} else {
-				x = false;
-			}
+			getRePassword();
+			setRePassword(rePassword, value);
+			x = true;
 		} else {
 			x = false;
 		}
-
 		return x;
-
 	}
-	
-	
+
 	public void close() {
 		driver.close();
 	}
@@ -148,19 +81,48 @@ public class LogInPO extends TestBase {
 		driver.navigate().back();
 	}
 
-public boolean waitUntil() {
-	boolean x;
-	WebDriverWait wait = new WebDriverWait(driver,5);
-	WebElement pathHeader;
-	pathHeader= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"header\"]")));
-	if(pathHeader.isDisplayed())
-		x = true;
-	else
-		x = false;
-	return x;
-	
-}
+	public boolean waitUntil() {
+		boolean x;
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebElement pathHeader;
+		pathHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"header\"]")));
+		if (pathHeader.isDisplayed())
+			x = true;
+		else
+			x = false;
+		return x;
 
+	}
 
+	public WebElement getReEmail() {
+		reEmail = driver.findElement(By.id("ReEmailTB"));
+		return reEmail;
+	}
+
+	public void setReEmail(WebElement reEmail, String value) {
+		this.reEmail = reEmail;
+		reEmail.sendKeys(value);
+
+	}
+
+	public WebElement getLogInBtn() {
+		driver.findElement(By.id("ReBGetS")).click();
+		return logInBtn;
+	}
+
+	public WebElement getLogInTab() {
+		driver.findElement(By.id("LoginB")).click();
+		return logInTab;
+	}
+
+	public WebElement getRePassword() {
+		rePassword = driver.findElement(By.id("RePassTB"));
+		return rePassword;
+	}
+
+	public void setRePassword(WebElement rePassword, String value) {
+		this.rePassword = rePassword;
+		rePassword.sendKeys(value);
+	}
 
 }

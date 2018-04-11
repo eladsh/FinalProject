@@ -15,15 +15,11 @@ public class SingUpPO extends TestBase {
 	// Properties
 
 	private WebElement firstName;
-	private WebElement SingOnTab;	
+	private WebElement SingOnTab;
 	private WebElement lastName;
 	private WebElement password;
 	private WebElement email;
-	private WebElement logInTab;
-	private WebElement logInBtn;
 	private WebElement SingOnBtn;
-	private WebElement reEmail;
-	private WebElement rePassword;
 
 	// constructor
 
@@ -31,6 +27,10 @@ public class SingUpPO extends TestBase {
 		super(browser);
 
 	}
+
+	public SingUpPO() {
+
+	};
 
 	// methods
 
@@ -50,19 +50,18 @@ public class SingUpPO extends TestBase {
 
 	public void pressSingOnTab() {
 		getSingOnTab();
-		
 
 	}
 
 	public void pressSingOnBtn() {
-		//driver.findElement(By.id("BGetS")).click();
+
 		getSingOnBtn();
 	}
 
 	public boolean fillFirstName(String value) {
 		boolean x;
 		if (value != null) {
-			
+
 			getFirstName();
 			setFirstName(firstName, value);
 			x = true;
@@ -76,7 +75,7 @@ public class SingUpPO extends TestBase {
 	public boolean fillLastName(String value) {
 		boolean x;
 		if (value != null) {
-			
+
 			getLastName();
 			setLastName(lastName, value);
 			x = true;
@@ -90,7 +89,7 @@ public class SingUpPO extends TestBase {
 	public boolean fillPassword(String value) {
 		boolean x;
 		if (value != null) {
-			
+
 			getPassword();
 			setPassword(password, value);
 			x = true;
@@ -102,7 +101,7 @@ public class SingUpPO extends TestBase {
 	}
 
 	public boolean fillEmail(String value) {
-		
+
 		getEmail();
 		setEmail(email, value);
 		boolean x;
@@ -134,53 +133,8 @@ public class SingUpPO extends TestBase {
 
 	}
 
-	public void pressLogInTab() {
-		
-		getLogInTab();
-
-	}
-
-	public void pressLogInBtn() {
-		
-		getLogInBtn();
-
-	}
-
-	public boolean fillReEmail(String value) {
-		getReEmail();
-		setReEmail(reEmail, value);
-		boolean x;
-		if (value != null) {
-			if (value.contains("@")) {
-				x = true;
-			} else {
-				x = false;
-			}
-		} else {
-			x = false;
-		}
-
-		return x;
-
-	}
-
-	public boolean fillRePassword(String value) {
-		getRePassword();
-		setRePassword(rePassword, value);
-		boolean x;
-		if (value != null) {
-			
-			x = true;
-		} else {
-			x = false;
-		}
-		return x;
-	}
-
-	
-	
 	// Getters & Setters
-	
+
 	public WebElement getFirstName() {
 		firstName = driver.findElement(By.id("FNTB"));
 		return firstName;
@@ -227,40 +181,9 @@ public class SingUpPO extends TestBase {
 		email.sendKeys(value);
 	}
 
-	public WebElement getReEmail() {
-		reEmail = driver.findElement(By.id("ReEmailTB"));
-		return reEmail;
-	}
-
-	public void setReEmail(WebElement reEmail, String value) {
-		this.reEmail = reEmail;
-		reEmail.sendKeys(value);
-		
-	}
-
-	public WebElement getRePassword() {
-		rePassword = driver.findElement(By.id("RePassTB"));
-		return rePassword;
-	}
-
-	public void setRePassword(WebElement rePassword, String value) {
-		this.rePassword = rePassword;
-		rePassword.sendKeys(value);
-	}
-
-	public WebElement getLogInTab() {
-		driver.findElement(By.id("LoginB")).click();
-		return logInTab;
-	}
-
-	public WebElement getLogInBtn() {
-		driver.findElement(By.id("ReBGetS")).click();
-		return logInBtn;
-	}
 	public WebElement getSingOnBtn() {
 		driver.findElement(By.id("BGetS")).click();
 		return SingOnBtn;
 	}
-
 
 }

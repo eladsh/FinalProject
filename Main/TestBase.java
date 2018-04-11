@@ -8,8 +8,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public abstract class TestBase {
 
 	// Properties
-	static String pageName;
-	public WebDriver driver;
+	public static WebDriver driver;
+	//public String url = "https://www.google.co.il/";
 	public String url = "file:///D:/Elad/Authomation%20cours/Final%20Project/signUp/index.html";
 	public String url1 = "file:///D:/";
 
@@ -20,9 +20,11 @@ public abstract class TestBase {
 	 
 
 	}
+	public TestBase() {
 	
+	 
 
-
+	}
 	public void Choosebrowser(String browser) {
 		switch (browser) {
 		case "Chrome":
